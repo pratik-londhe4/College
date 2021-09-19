@@ -1,0 +1,246 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+  <style>
+    .time{
+      margin-bottom: 90%;
+    }
+    .title{
+      margin-left: 42%;
+      margin-right: 40%;
+    }
+.notify{
+  height: 150px;
+  width: 250px;
+  border: 1px solid black;
+  margin-right: 60%;
+  margin-left: 40%;
+
+
+}
+.notification{
+ // margin-left: ;
+  height: 100px;
+  width: 250px;
+  border: 1px solid violet;
+}
+.notText{
+  border-bottom: 1px solid black;
+  text-align: center;
+
+}
+.links{
+  margin-left: 45%;
+}
+  </style>
+
+</head>
+
+<body onload="">
+
+  <!-- Add your site or application content here -->
+<span id="time" class="time"></span><br/>
+  <span class="date" id="date"></span>
+
+
+  <h2 class="title">Welcome to College</h2><br/>
+
+
+  <div class="notify">
+    <div class="notText">Notification</div>
+    <div class="notification" id="notification" onload="notify()">
+
+    </div>
+
+
+  </div><br/>
+
+
+
+<div class="links" >
+  <input type="button" value="TE-A Lecture" class="b1" onclick="lecture()" id="lec"/><br/><br/>
+  <input type="button" value="T1-Practical" onclick="prT1()" id="pr1" /><br/><br/>
+  <input type="button" value="T2-Practical" onclick="prT2()" id="pr2"/><br/><br/>
+  <input type="button" value="T3-Practical" onclick="prT3()" id="pr3"/><br/><br/>
+  <input type="button" value="T4-Practical" onclick="prT4()" id="p4"/><br/><br/>
+</div>
+
+
+
+  <script>
+  </script>
+</body>
+<script>
+  const lectureB = document.getElementById("lec");
+  const pr1 = document.getElementById("pr1");
+  const pr2 = document.getElementById("pr2");
+  const pr3 = document.getElementById("pr3");
+  const pr4 = document.getElementById("pr4");
+
+  var date = new Date();
+  var myVar = setInterval(myTimer, 1000);
+
+  //timings
+  var _10am = "10:00:00";
+  var _1045am = "10:45:00";
+  var _1130am = "11:30:00";
+  var _1215pm = "12:15:00";
+  var _1pm = "13:00:00";
+  var _145pm = "13:45:00";
+  var _230pm = "14:30:00";
+  var _315pm = "15:15:00";
+
+
+  function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("time").innerHTML = t;
+    document.getElementById("date").innerHTML = d.toLocaleDateString();
+  }
+
+  var notification = document.getElementById("notification");
+  var day = date.getDay();
+  var t1 = date.toLocaleTimeString();
+
+  function notifyRepeat() {
+    //monday
+    if (day === 1) {
+      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for IOT lecture";
+      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Join for DBMS Lecture";
+      else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for CSN Lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) {
+        notification.innerText = "Join for AIML lecture";
+        var url = "";
+
+      } else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
+      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Practical Going on";
+      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Practical Going on";
+      else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
+
+
+    } else
+      //tuesday
+    if (day === 2) {
+      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for Practical";
+      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Practical Going on";
+      else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for IOT Lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for AIML lecture";
+      else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
+      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Join for DBMS lecture";
+      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Join for TOC lecture";
+      else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
+
+
+    } else
+      //wednesday
+    if (day === 3) {
+      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for SPOS lecture";
+      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Join for CNS Lecture";
+      else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for IOT Lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for AIML lecture";
+      else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
+      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Practical Going on";
+      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Practical Going on";
+      else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
+
+
+    } else
+      //thursday
+    if (day === 4) {
+      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for Practical";
+      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Practical Going on";
+      else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for TOC Lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for AIML lecture";
+      else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
+      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Join for SPOS lecture";
+      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Join for STC lecture";
+      else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
+
+
+    } else
+      //friday
+    if (day === 5) {
+      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for Practical";
+      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Practical Going on";
+      else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for SPOS Lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for CNS lecture";
+      else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
+      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Join for AIML Practical";
+      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Join for AIML Practical";
+      else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
+
+
+    } else
+      //saturday
+    if (day === 6) {
+
+      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for TOC lecture !";
+      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Join for DBMS Lecture";
+      else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "RCH/MUC Lecture!";
+      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Audit Course";
+      else if (t1 > _1pm) notification.innerText = "Today's lectures Finished";
+
+
+    } else
+      //sunday
+    if (day === 0) {
+      notification.innerText = "Sunday , no lectures Today";
+      lectureB.style.visibility = 'hidden';
+      pr1.style.visibility = 'hidden';
+      pr2.style.visibility = 'hidden';
+      pr3.style.visibility = 'hidden';
+      pr4.style.visibility = 'hidden';
+
+
+
+
+    }
+  }
+
+
+  function lecture(){
+    window.open("https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1", "_blank");
+  }
+  function prT1(){
+    window.open("https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1", "_blank");
+  }
+  function prT2(){
+    window.open("https://meet.google.com/aro-fjht-xru?hs=224?pli=1&authuser=1", "_blank");
+  }
+  function prT3(){
+    window.open("https://meet.google.com/wix-aiys-hzn?hs=224?pli=1&authuser=1", "_blank");
+  }
+  function prT4(){
+    window.open("https://meet.google.com/fzt-sohy-mbe?hs=224?pli=1&authuser=1", "_blank");
+  }
+  var not = setInterval(notifyRepeat , 1000);
+
+
+
+</script>
+
+
+
+</html>

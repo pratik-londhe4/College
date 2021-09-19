@@ -92,10 +92,14 @@
     <div class="notText">Notification</div>
     <div class="notification" id="notification" onload="notify()"></div>
 
-      <button class="b1 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="lecture()" id="lec">Click here to join</button>
-
-
+      <button class="b1 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="lecture()" id="lec">Click here to join</button><br/>
+    <div id="prButtons">
+    <button style="margin-left: 27%;margin-top: 4%;" class=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT2()" id="t2">T2</button>
+    <button  style="margin-left: 5%;" class=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT3()" id="t3">T3</button>
+    <button  style="margin-left: 5%;" class=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT4()" id="t4">T4</button>
     </div>
+
+  </div>
 
 
   <br/>
@@ -110,6 +114,7 @@
 </body>
 <script>
   const lectureB = document.getElementById("lec");
+  const prB = document.getElementById("prButtons");
 
   var buttonLink = "";
 
@@ -152,6 +157,7 @@
       }
       else if (t1 >= _1215pm && t1 < _1pm) {
         notification.innerText = "Join for AIML lecture";
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
       }
       else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
       else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Practical Going on";
@@ -162,10 +168,19 @@
     } else
       //tuesday
     if (day === 2) {
-      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for Practical";
-      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Practical Going on";
+      if (t1 < _1045am && t1 >= _10am) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Join for Practical";
+      }
+      else if (t1 > _1045am && t1 < _1130am) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Practical Going on";
+      }
       else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for IOT Lecture";
-      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for AIML lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) {
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
+        notification.innerText = "Join for AIML lecture";
+      }
       else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
       else if (t1 >= _145pm && t1 < _230pm) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
@@ -190,23 +205,41 @@
         notification.innerText = "Join for CNS Lecture";
       }
       else if (t1 >= _1130am && t1 < _1215pm) notification.innerText = "Join for IOT Lecture";
-      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for AIML lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) {
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
+        notification.innerText = "Join for AIML lecture";
+      }
       else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
-      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Practical Going on";
-      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Practical Going on";
+      else if (t1 >= _145pm && t1 < _230pm) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Practical Going on";
+      }
+      else if (t1 > _230pm && t1 < _315pm) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Practical Going on";
+      }
       else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
 
 
     } else
       //thursday
     if (day === 4) {
-      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for Practical";
-      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Practical Going on";
+      if (t1 < _1045am && t1 >= _10am) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Join for Practical";
+      }
+      else if (t1 > _1045am && t1 < _1130am) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Practical Going on";
+      }
       else if (t1 >= _1130am && t1 < _1215pm){
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
         notification.innerText = "Join for TOC Lecture";
       }
-      else if (t1 >= _1215pm && t1 < _1pm) notification.innerText = "Join for AIML lecture";
+      else if (t1 >= _1215pm && t1 < _1pm) {
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
+        notification.innerText = "Join for AIML lecture";
+      }
       else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
       else if (t1 >= _145pm && t1 < _230pm) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
@@ -222,8 +255,14 @@
     } else
       //friday
     if (day === 5) {
-      if (t1 < _1045am && t1 >= _10am) notification.innerText = "Join for Practical";
-      else if (t1 > _1045am && t1 < _1130am) notification.innerText = "Practical Going on";
+      if (t1 < _1045am && t1 >= _10am) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Join for Practical";
+      }
+      else if (t1 > _1045am && t1 < _1130am) {
+        buttonLink="https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1";
+        notification.innerText = "Practical Going on";
+      }
       else if (t1 >= _1130am && t1 < _1215pm) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
         notification.innerText = "Join for SPOS Lecture";
@@ -234,8 +273,14 @@
       }
 
       else if (t1 > _1pm && t1 < _145pm) notification.innerText = "Lunch Break";
-      else if (t1 >= _145pm && t1 < _230pm) notification.innerText = "Join for AIML Practical";
-      else if (t1 > _230pm && t1 < _315pm) notification.innerText = "Join for AIML Practical";
+      else if (t1 >= _145pm && t1 < _230pm) {
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
+        notification.innerText = "Join for AIML Practical";
+      }
+      else if (t1 > _230pm && t1 < _315pm) {
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
+        notification.innerText = "Join for AIML Practical";
+      }
       else if (t1 > _315pm) notification.innerText = "Today's lectures Finished";
 
 
@@ -267,7 +312,8 @@
     if (day === 0) {
       notification.innerText = "Sunday , no lectures Today";
       lectureB.style.visibility = 'hidden';
-     // buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
+      prB.style.visibility = 'hidden';
+
 
 
 
@@ -280,9 +326,7 @@
   function lecture(){
     window.open(buttonLink, "_blank");
   }
-  function prT1(){
-    window.open("https://meet.google.com/ohf-brwa-fzi?pli=1&authuser=1", "_blank");
-  }
+
   function prT2(){
     window.open("https://meet.google.com/aro-fjht-xru?hs=224?pli=1&authuser=1", "_blank");
   }

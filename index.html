@@ -8,10 +8,11 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" integrity="sha512-doJrC/ocU8VGVRx3O9981+2aYUn3fuWVWvqLi1U+tA2MWVzsw+NVKq1PrENF03M+TYBP92PnYUlXFH1ZW0FpLw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <meta charset="utf-8">
-  <title></title>
+  <title>Timetable | TE-A</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +20,7 @@
   <meta property="og:type" content="">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
+
 
 
   <link rel="manifest" href="site.webmanifest">
@@ -29,6 +31,7 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
+  <meta http-equiv="refresh" content="120000">
   <style>
     body{
       background-color: whitesmoke;
@@ -46,12 +49,13 @@
       text-align: center;
       background-color: #b3d4fc;
     }
-.notify{
+main .notify{
   height: 300px;
   width: 450px;
   border: 1px solid black;
  // margin-right: 60%;
-  margin-left: 35%;
+  margin-left: 6%;
+  text-justify: auto;
 
 
 }
@@ -80,6 +84,39 @@ img{
   margin-top: 10%;
   margin-left: 91%;
 }
+footer{
+  margin-top: 15%;
+  margin-left: 20%;
+  display: flex;
+}
+footer .right{
+
+  flex: 1;
+}
+footer .left{
+  flex: 1;
+}
+.b2{
+  margin-left: 20%;
+}
+main{
+  display: flex;
+}
+main .info{
+  width: 350px;
+  height: 450px;
+  border: 1px solid black;
+  margin-left: 3%;
+}
+main .mobinfo{
+  display: none;
+}
+    .mbFooter{
+      display: none;
+
+
+    }
+
     @media screen and (max-width: 768px) {
 
       body{
@@ -93,17 +130,18 @@ img{
         background-color: aliceblue;
       }
       .title{
-        font-size: 23px;
+        //font-size: 23px;
         border: 1px solid black;
-        text-align: left;
+        text-align: center;
         background-color: #b3d4fc;
       }
-      .notify{
+     main .notify{
+
         height: 300px;
         width: 94%;
         border: 1px solid black;
       // margin-right: 60%;
-        margin-left: 3%;
+        margin-left: 2.5%;
 
 
       }
@@ -115,7 +153,7 @@ img{
       //  border-bottom: 1px solid black;
         //text-align: center;
       }
-      .notText{
+    main  .notText{
         border-bottom: 1px solid black;
         text-align: center;
         font-size: larger;
@@ -128,12 +166,53 @@ img{
 
         box-shadow: #b3d4fc;
       }
+      .b2{
+        margin-left: 10%;
+      }
 
       img{
         margin-left: 40%;
         margin-top: 5%;
 
       }
+      main{
+        display: flex;
+        flex-direction: column;
+
+      }
+
+
+      main .info{
+      display: none;
+
+
+         }
+      main .mobinfo{
+        display:inline ;
+        margin-left: 2%;
+        border: 1px solid black;
+        width: 94%;
+        margin-top: 5%;
+        height: 200px;
+
+
+      }
+
+      .pcFooter{
+        display: none;
+      }
+
+      .mbFooter{
+        display: flex;
+        margin-top: 10%;
+        margin-left: 10%;
+        margin-bottom: 7%;
+
+      }
+
+
+
+
 
 
 
@@ -154,9 +233,12 @@ img{
   <span class="date" id="date"></span><br/><br/>
 
 <div class="title">
-  <h2 >--Welcome to College--</h2>
+  <h2 class="heading" >--Welcome to College--</h2>
 </div><br/><br/><br/>
-
+  <main class="content">
+    <div class="info">
+      <h2 style="text-align: center;" class="pcInfo">What is this website about?</h2>
+    </div>
 
   <div class="notify">
     <div class="notText">Notification</div>
@@ -164,7 +246,7 @@ img{
 
       <button class="b1 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="lecture()" id="lec">Click here to join</button><br/>
     <div id="prButtons">
-      <button  style="margin-left: 20%;" class=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT1()" id="t1">T1</button>
+      <button   class="b2 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT1()" id="t1">T1</button>
 
       <button style="margin-left: 5%;margin-top: 4%;" class=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT2()" id="t2">T2</button>
     <button  style="margin-left: 5%;" class=" bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="prT3()" id="t3">T3</button>
@@ -172,10 +254,31 @@ img{
 
     </div>
 
+    <footer class="pcFooter">
+      <div>
+        <button  style="margin-left: 5%;" class="left bg-blue-500 hover:bg-blue-400 text-white font-normal py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="feedback()" id="f2">Feedback/Report Problem</button>
+      </div><div>
+      <a href="#"><img src="GitHub.png" height="50px" width="50px" onclick="openGit()" class="right"/></a></div>
+    </footer>
+
+
   </div>
-  <footer>
-    <img src="GitHub.png" height="50px" width="50px" onclick="openGit()"></a>
-  </footer>
+
+    <div class="mobinfo">
+      <h2 style="text-align: center;">   What is this website about?</h2>
+    </div>
+
+    <footer class="mbFooter">
+      <div>
+        <button  style="margin-left: 5%;" class="left bg-blue-500 hover:bg-blue-400 text-white font-normal py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" onclick="feedback()" id="f1">Feedback/Report Problem</button>
+      </div><div>
+      <a href="#"><img src="GitHub.png" height="50px" width="50px" onclick="openGit()" class="right"/></a></div>
+    </footer>
+
+
+
+  </main>
+
 
 
 </body>
@@ -253,24 +356,26 @@ img{
   var day = date.getDay();
   var t1 = date.toLocaleTimeString("en-us",options);
 
+  const not = setInterval(notifyRepeat , 1000);
+
   function notifyRepeat() {
+
     //monday
     if (day === 1) {
       if (t1 < _1045am && t1 >= _10am) {
-        if (t1===_10am)notifyMe("Join for IOT lecture");
-
-        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_Yzg0YmRlN2EtMjhhNy00YWE4LWJiMTEtZTlmZWQ3NWM1NmM2%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22a4b1cc65-7a37-43ce-87d8-d3e52913431f%22%7d"
+        if (t1===_10am)notifyMe("Join for DBMS lecture");
+        buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
         notification.innerText = "Join for IOT lecture";
       }
       else if (t1 > _1045am && t1 < _1130am) {
-        if (t1===_1045am)notifyMe("Join for DBMS Lecture");
+        if (t1===_1045am)notifyMe("Join for CNS Lecture");
 
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for DBMS Lecture";
+        notification.innerText = "Join for CNS Lecture";
       }
       else if (t1 >= _1130am && t1 < _1215pm) {
-        buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for CSN Lecture";
+        buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_Yzg0YmRlN2EtMjhhNy00YWE4LWJiMTEtZTlmZWQ3NWM1NmM2%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22a4b1cc65-7a37-43ce-87d8-d3e52913431f%22%7d"
+        notification.innerText = "Join for IOT Lecture";
       }
       else if (t1 >= _1215pm && t1 < _1pm) {
         notification.innerText = "Join for AIML lecture";
@@ -327,11 +432,11 @@ img{
       }
       else if (t1 >= _145pm && t1 < _230pm) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for DBMS lecture";
+        notification.innerText = "Join for STC lecture";
       }
       else if (t1 > _230pm && t1 < _315pm) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for TOC lecture";
+        notification.innerText = "Join for DBMS lecture";
       }
       else if (t1 > _315pm) {
         lectureB.style.visibility = 'hidden';
@@ -349,7 +454,7 @@ img{
       }
       else if (t1 > _1045am && t1 < _1130am) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for CNS Lecture";
+        notification.innerText = "Join for TOC Lecture";
       }
       else if (t1 >= _1130am && t1 < _1215pm) {
         buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_Yzg0YmRlN2EtMjhhNy00YWE4LWJiMTEtZTlmZWQ3NWM1NmM2%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22a4b1cc65-7a37-43ce-87d8-d3e52913431f%22%7d"
@@ -376,6 +481,7 @@ img{
       }
       else if (t1 > _315pm) {
         lectureB.style.visibility = 'hidden';
+       // prB.style.visibility = 'visible';
 
         notification.innerText = "Today's lectures Finished";
       }
@@ -396,7 +502,7 @@ img{
       }
       else if (t1 >= _1130am && t1 < _1215pm){
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for TOC Lecture";
+        notification.innerText = "Join for CNS Lecture";
       }
       else if (t1 >= _1215pm && t1 < _1pm) {
         buttonLink = "https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZGIwY2M1OTMtZjk4OS00YmJlLWFjMjctNTg2NWZiMTJiYzFk%40thread.v2/0?context=%7b%22Tid%22%3a%22233f25a6-9def-4abb-89f6-82b2c6e7ea8d%22%2c%22Oid%22%3a%22ae7f8691-b682-4994-8230-5cf5b3a76745%22%7d"
@@ -413,7 +519,7 @@ img{
       }
       else if (t1 > _230pm && t1 < _315pm) {
         buttonLink = "https://meet.google.com/tgm-vatb-ysk?pli=1&authuser=1"
-        notification.innerText = "Join for STC lecture";
+        notification.innerText = "Join for TOC lecture";
       }
       else if (t1 > _315pm) {
         lectureB.style.visibility = 'hidden';
@@ -512,6 +618,9 @@ img{
   function lecture(){
     window.open(buttonLink, "_blank");
   }
+  function prT1(){
+    window.open("https://meet.google.com/ohf-brwa-fzi","_blank");
+  }
 
   function prT2(){
     window.open("https://meet.google.com/aro-fjht-xru?hs=224?pli=1&authuser=1", "_blank");
@@ -522,7 +631,10 @@ img{
   function prT4(){
     window.open("https://meet.google.com/fzt-sohy-mbe?hs=224?pli=1&authuser=1", "_blank");
   }
-  const not = setInterval(notifyRepeat , 1000);
+  function feedback(){
+    window.open("https://forms.gle/PjMYNYxMx4gWarEy6","_blanks");
+
+  }
 
 
 
